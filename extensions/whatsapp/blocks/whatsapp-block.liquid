@@ -21,7 +21,6 @@
 
         <img src="{{ block.settings.image| image_url: width: 1024 }}" alt="" loading="lazy" width="50" height="50" style="border-radius: 50%;">
 
-
     <div style="margin-left: 7px;">
     <p style="line-height: 0.2; color: white;"> {{block.settings.name}}</p>
     <p style="line-height: 0; font-size: 12px; font-weight: 700; color: white"> {{block.settings.reply-timing}}</p>
@@ -33,13 +32,13 @@
         <div class="yy">
         
           <span style=" color: gray;  font-size: 10px; padding-left: 10px;"> {{block.settings.name}}</span>
-          <p style=" line-height: 1; margin-top:0; padding-left: 10px ;padding-right:5px;"> {{block.settings.default-text}}</p>
+          <p style=" line-height: 1; margin-top:0; padding-left: 10px ;padding-right:5px;"> Hi there👋 How can I help you?</p>
 
         </div>
         <div id="triangle-topright">
         </div>
         <div style="background: white; padding : 1px; border-radius: 0px 0px 20px 20px ;">
-       <a href="https://wa.me/{{block.settings.phone-number}}?text={{block.settings.default-text}}" target="_blank">
+        <a  href="https://wa.me/{{block.settings.phone-number}}?text={{block.settings.default-text}}" target="_blank" style="text-decoration: none;">
         <button type="button" class="block" style="margin: 15px; color: white; background: #16c455"> {{block.settings.button-text}}</button>
        </a>
     </div>
@@ -88,6 +87,16 @@
         "label": "Button Text"
       },
 
+
+      {
+        "type": "text",
+        "id": "text-on-hover",
+        "label": "Text on Whatsapp icon hover"
+      },
+      {
+        "type": "header",
+        "content": "On Click Icon"
+      },
       {
         "type": "text",
         "id": "phone-number",
