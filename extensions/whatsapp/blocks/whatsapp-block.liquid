@@ -1,0 +1,263 @@
+<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+
+<div class="whatsapp-container">
+  <div class="icon" style="padding:3px; margin-bottom:4px;">
+     <i class="bx bxl-whatsapp"></i>
+  </div>
+</div>
+
+<div class="hide-container show" id="hide" style="background-image: url(https://i.ibb.co/Z1BnkwB/download-1.png); border-radius : 20px">
+  <div style="display: flex; background: #085e55; padding: 15px; border-radius: 20px 20px 0px 0px;">
+      <div class="close" onclick="funClose()" style="position: absolute;
+        right: 20px;"><span>×</span></div> 
+        <div style="background-color:#16c455;
+          height: 10px;
+          width: 10px;
+          border-radius: 50%;
+          position: absolute;
+          right: 265px;
+          bottom: 230px;"> </div>
+
+        <img src="{{ block.settings.image| image_url: width: 1024 }}" alt="" loading="lazy" width="50" height="50" style="border-radius: 50%;">
+
+
+    <div style="margin-left: 7px;">
+    <p style="line-height: 0.2; color: white;"> {{block.settings.name}}</p>
+    <p style="line-height: 0; font-size: 12px; font-weight: 700; color: white"> {{block.settings.reply-timing}}</p>
+    </div>
+    </div>
+
+<div>
+
+        <div class="yy">
+        
+          <span style=" color: gray;  font-size: 10px; padding-left: 10px;"> {{block.settings.name}}</span>
+          <p style=" line-height: 1; margin-top:0; padding-left: 10px ;padding-right:5px;"> {{block.settings.default-text}}</p>
+
+        </div>
+        <div id="triangle-topright">
+        </div>
+        <div style="background: white; padding : 1px; border-radius: 0px 0px 20px 20px ;">
+       <a href="https://wa.me/{{block.settings.phone-number}}?text={{block.settings.default-text}}" target="_blank">
+        <button type="button" class="block" style="margin: 15px; color: white; background: #16c455"> {{block.settings.button-text}}</button>
+       </a>
+    </div>
+
+    </div>
+	
+</div>
+
+
+
+{% render "app_snippet" %}
+
+{% schema %}
+  {
+    "name": "New Whatsapp",
+    "target": "body",
+    "stylesheet": "app.css",
+    "javascript": "app.js",
+    "settings": [
+      {
+        "type": "header",
+        "content": "WhataApp Content"
+      },
+
+       {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      
+      {
+        "type": "text",
+        "id": "name",
+        "label": "Name"
+      },
+
+     {
+        "type": "text",
+        "id": "reply-timing",
+        "label": "Reply timing"
+      },
+
+      {
+        "type": "text",
+        "id": "button-text",
+        "label": "Button Text"
+      },
+
+      {
+        "type": "text",
+        "id": "phone-number",
+        "label": "Whatsapp number with Countary code",
+        "default": "91XXXXXXXXXX"
+      },
+      {
+        "type": "text",
+        "id": "default-text",
+        "label": "Default Message"
+      }
+    ]
+  }
+{% endschema %}
+
+
+<style>
+
+.yy {
+  background: white; 
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 0px 10px 10px 10px; 
+  height:90px; 
+  width:150px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 25px;
+}
+  
+  #triangle-topright {
+      width: 0;
+      height: 0;
+    border-top: 20px solid white;
+    border-left: 20px solid transparent;
+    margin: -115px 0 0 10px;
+    position: absolute;
+    }
+
+
+    .bx{
+      font-family: boxicons!important;
+      font-weight: 400;
+      font-style: normal;
+      font-variant: normal;
+      line-height: 0.3;
+      text-rendering: auto;
+      display: inline-block;
+      text-transform: none;
+      speak: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+  }
+
+  .block {
+    display: block;
+    width: 90%;
+    border: none;
+    background-color: #04AA6D;
+    padding: 10px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 20px
+  }
+	
+	.whatsapp-container{
+	  display:flex;
+	  color: #25d366;;
+	  height:49px;
+      position: fixed;
+      bottom: 2%;
+	  padding:9px;
+      right: 20px;
+	  text-align: center;
+	  border-radius:5px;
+	  z-index:1;
+	  cursor:pointer;
+	}
+    .whatsapp-container i{
+	  font-size: 75px;
+	}
+	
+	.whatsapp-container p{
+	  font-size:15px;
+	  color:black;
+    margin: 0;
+    font-weight: 700;
+    }
+
+	.hide-container{
+		display:none;
+        position: fixed;
+        font-weight:700;
+        width: 330px;
+        bottom: 75px;
+        z-index: 1;
+        right: 20px;
+        border-radius: 5px;
+        margin-left:50px;
+        
+        
+	}
+	
+	
+  	.show{
+      display:block; 
+    }
+     @media (max-width:990px){
+     .whatsapp-container{
+      	 bottom: 9%;
+      }
+	 .hide-container
+		{
+			bottom: 130px;
+		}	
+	}
+
+     @media (max-width:470px){
+     .whatsapp-container{
+      	 bottom: 9%;
+      }
+	 .hide-container
+		{
+			width: 220px;
+            
+		}	
+	}
+	   	
+  
+  .close{
+   
+    color: white;
+    text-align:center;
+
+    cursor:pointer;
+
+  }
+  
+ 
+
+
+</style>
+
+
+<script type="text/javascript">
+
+  const hide=document.querySelector(".hide-container");
+  window.addEventListener("load",function(){
+   
+    showHidePopup();
+  })
+  
+  function showHidePopup(){
+    const time=3;
+    let i=0;
+    const timer= setInterval(function(){
+      i++;
+      if(i==time)
+      {
+        clearInterval(timer);
+        hide.classList.add("show");
+      }
+    },1000);
+  }
+  
+  
+  function funClose(){
+    hide.classList.remove("show");
+  }
+  
+  
+</script>
